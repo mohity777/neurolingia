@@ -1,0 +1,35 @@
+
+.MuiPickersStaticWrapper-staticWrapperRoot {
+    display: flex;
+    overflow: hidden;
+    min-width: 310px;
+    flex-direction: column;
+    background-color: rgb(255 255 255);
+    border-radius: 5%;
+    margin-top: 1rem;
+    height: 17rem;
+    /* font-family: AvenirNext !important; */
+}
+
+.MuiPickersCalendarHeader-iconButton {
+    z-index: 1;
+    background-color: pink !important;
+    margin: 2% 8% !important;
+    border: 20px black !important;
+    
+}
+
+.MuiIconButton-root {
+    padding: 2px !important;
+    border-radius: 25% !important;
+    border: 30px black !important;
+
+}
+
+.MuiPickersDay-daySelected {
+    color: rgb(0, 166, 255) !important;
+    font-weight: 500;
+    background-color: pink !important;
+}
+
+

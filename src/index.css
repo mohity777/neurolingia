@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+font-family: "AvenirNext" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: local("AvenirNext"),
+   url("./Fonts/AvenirNext/AvenirNextLTPro-Regular.otf") format("opentype");
+  }

@@ -65,9 +65,6 @@ function Info({ activeStep, setActiveStep, setDisplay, setProgress }) {
                 <span className="selected"> Teacher</span>
             </h6>
 
-
-
-            {/* <BasicInfoName /> */}
             <div>{basicInfoComponents()}</div>
 
 

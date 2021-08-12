@@ -13,12 +13,13 @@ import DescriptionForm from "../../components/DescriptionForm"
 import "./index.css"
 import ProfilePicForm from '../../components/ProfilePicForm'
 import VideoForm from '../../components/VideoForm'
+import ResumeForm from '../../components/ResumeForm'
 
 function TeacherProfile() {
 
-  const [formType,setFormType] = useState("0_0")      //formIndex_subformIndex
+  const [formType, setFormType] = useState("0_0")      //formIndex_subformIndex
 
-     // All needed Details
+  // All needed Details
   const firstName = useRef('');
   const lastName = useRef('');
   const dob = useRef(new Date())
@@ -28,7 +29,7 @@ function TeacherProfile() {
   const teacherType = useRef('');
 
   const onClickNext = () => {
-    let [formIndex,subFormIndex] = formType.split('_');
+    let [formIndex, subFormIndex] = formType.split('_');
     let intFormIndex = parseInt(formIndex);
     let intSubFormIndex = parseInt(subFormIndex);
     switch (intSubFormIndex) {
@@ -44,7 +45,7 @@ function TeacherProfile() {
   }
 
   const onClickPrev = () => {
-    let [formIndex,subFormIndex] = formType.split('_');
+    let [formIndex, subFormIndex] = formType.split('_');
     let intFormIndex = parseInt(formIndex);
     let intSubFormIndex = parseInt(subFormIndex)
     switch (intSubFormIndex) {
@@ -60,50 +61,51 @@ function TeacherProfile() {
   }
 
   const renderForm = () => {
-    let [_,subFormIndex] = formType.split('_');
-    switch(subFormIndex){
-      case "0": return <NameForm onChangeFN={(val)=> firstName.current = val} onChangeLN={(val) => lastName.current = val}/>;
-      case "1": return <GenderForm onChangeGender={val => gender.current = val }/>;
-      case "2": return <CalenderForm onChangeDOB={(val) => dob.current = val}/>;
-      case "3": return <MobileForm onChangeCode={val => countryCode.current = val} onChangeMobileNo={val => mobileNo.current = val}/>;
-      case "4": return <TeacherTypeForm onChangeType={val => teacherType.current = val}/>
-      case "5": return <LanguageForm/>;
-      case "6": return <LocationForm/>;
-      case "7": return <DescriptionForm/>
-      case "8": return <ProfilePicForm/>;
+    let [_, subFormIndex] = formType.split('_');
+    switch (subFormIndex) {
+      case "0": return <NameForm onChangeFN={(val) => firstName.current = val} onChangeLN={(val) => lastName.current = val} />;
+      case "1": return <GenderForm onChangeGender={val => gender.current = val} />;
+      case "2": return <CalenderForm onChangeDOB={(val) => dob.current = val} />;
+      case "3": return <MobileForm onChangeCode={val => countryCode.current = val} onChangeMobileNo={val => mobileNo.current = val} />;
+      case "4": return <TeacherTypeForm onChangeType={val => teacherType.current = val} />
+      case "5": return <LanguageForm />;
+      case "6": return <LocationForm />;
+      case "7": return <DescriptionForm />
+      case "8": return <ProfilePicForm />;
       case "9": return <VideoForm />
+      case "10": return <ResumeForm />
       default: <h1>No Match Found for formType</h1>
     }
   }
 
 
-    return (
-     <div className="container">
-       <SideNav subFormIndex={parseInt(formType.split('_')[1])} formIndex={parseInt(formType.split('_')[0])}/>
-       <div className="right">
-         <div className="rightTop">
-           <h1 className="applyFor">
-             You are applying for: <span className="role">Teacher</span>
-           </h1>
-           <div className="formHeadlineView">
-             <h1 className="formHeadline">
-               {SUB_FORMS[formType.split("_")[1]]}
-             </h1>
-             {formType.split("_")[1] == "7" ? <h6>how you teach, what you teach and talking about your language</h6>  :<></>}
-           </div>
-         </div>
-         <div className="rightCenter">{renderForm()}</div>
-         <div className="rightBottom">
-           <FormRowBtn
-             onClickNext={onClickNext}
-             onClickPrev={onClickPrev}
-             hidePrev={formType == "0_0"}
-             hideNext={formType == "4_12"}
-           />
-         </div>
-       </div>
-     </div>
-    );
+  return (
+    <div className="container">
+      <SideNav subFormIndex={parseInt(formType.split('_')[1])} formIndex={parseInt(formType.split('_')[0])} />
+      <div className="right">
+        <div className="rightTop">
+          <h1 className="applyFor">
+            You are applying for: <span className="role">Teacher</span>
+          </h1>
+          <div className="formHeadlineView">
+            <h1 className="formHeadline">
+              {SUB_FORMS[formType.split("_")[1]]}
+            </h1>
+            {formType.split("_")[1] == "7" ? <h6>how you teach, what you teach and talking about your language</h6> : <></>}
+          </div>
+        </div>
+        <div className="rightCenter">{renderForm()}</div>
+        <div className="rightBottom">
+          <FormRowBtn
+            onClickNext={onClickNext}
+            onClickPrev={onClickPrev}
+            hidePrev={formType == "0_0"}
+            hideNext={formType == "4_12"}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default TeacherProfile;

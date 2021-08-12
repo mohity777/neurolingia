@@ -19,5 +19,5 @@
 @font-face {
   font-family: "AvenirNext";
   src: local("AvenirNext"),
-   url("./Fonts/AvenirNext/AvenirNextLTPro-Bold.otf") format("opentype");
+   url("./assets/Fonts/AvenirNext/AvenirNextLTPro-Bold.otf") format("opentype");
   }

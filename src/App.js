@@ -3,10 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink
 } from 'react-router-dom';
-import Profile from './Components/Teacher/Profile';
-import TeacherProfile from './Screens/TeacherProfile/index';
+import TeacherProfile from './screens/TeacherProfile/index';
 
 function App() {
   return (

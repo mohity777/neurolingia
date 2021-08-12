@@ -1,21 +1,18 @@
-// import './Styles/Profile.css'
-import SideNav from '../../Components/Teacher/SideNav'
-// import Info from './Info'
-
+import SideNav from '../../components/SideNav'
 import React, { useRef, useState } from "react"
-import NameForm from "../../Components/NameForm"
-import GenderForm from "../../Components/GenderForm"
-import CalenderForm from "../../Components/CalenderForm"
+import NameForm from "../../components/NameForm"
+import GenderForm from "../../components/GenderForm"
+import CalenderForm from "../../components/CalenderForm"
 import { SUB_FORMS } from "../../utils/constants"
-import FormRowBtn from "../../Components/FormRowBtn"
-import MobileForm from "../../Components/MobileForm"
-import TeacherTypeForm from "../../Components/TeacherTypeForm"
-import LanguageForm from "../../Components/LanguageSkillsForm"
-import LocationForm from "../../Components/LocationForm"
-import DescriptionForm from "../../Components/DescriptionForm"
+import FormRowBtn from "../../components/FormRowBtn"
+import MobileForm from "../../components/MobileForm"
+import TeacherTypeForm from "../../components/TeacherTypeForm"
+import LanguageForm from "../../components/LanguageSkillsForm"
+import LocationForm from "../../components/LocationForm"
+import DescriptionForm from "../../components/DescriptionForm"
 import "./index.css"
-import ProfilePicForm from '../../Components/ProfilePicForm'
-import VideoForm from '../../Components/VideoForm'
+import ProfilePicForm from '../../components/ProfilePicForm'
+import VideoForm from '../../components/VideoForm'
 
 function TeacherProfile() {
 

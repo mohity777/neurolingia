@@ -10,7 +10,6 @@ import TeacherTypeForm from "../../components/TeacherTypeForm"
 import LanguageForm from "../../components/LanguageSkillsForm"
 import LocationForm from "../../components/LocationForm"
 import DescriptionForm from "../../components/DescriptionForm"
-import EducationDetails from "../../components/EducationDetailsForm";
 import "./index.css"
 import ProfilePicForm from '../../components/ProfilePicForm'
 import VideoForm from '../../components/VideoForm'
@@ -50,7 +49,9 @@ function TeacherProfile() {
         formData.append("dob", dob.current);
         break;
       case 3:
-      case 4:
+      case 4: //Teacher Type
+        formData.append("teacher_type", teacherType.current);
+        break;
       case 5:
       case 6:
       case 7:

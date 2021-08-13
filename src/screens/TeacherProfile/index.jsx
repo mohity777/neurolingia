@@ -30,6 +30,8 @@ function TeacherProfile() {
   const countryCode = useRef('91');
   const mobileNo = useRef('');
   const teacherType = useRef('');
+  const languageSpeak = useRef([]);
+  const languageTeach = useRef([]);
 
   const onClickNext = () => {
     let [formIndex, subFormIndex] = formType.split('_');
@@ -53,6 +55,8 @@ function TeacherProfile() {
         formData.append("teacher_type", teacherType.current);
         break;
       case 5:
+        formData.append("language_speak", languageSpeak.current);
+        formData.append("language_teaches", languageTeach.current);
       case 6:
       case 7:
       case 8:
@@ -93,7 +97,7 @@ function TeacherProfile() {
       case "2": return <CalenderForm onChangeDOB={(val) => dob.current = val} />;
       case "3": return <MobileForm onChangeCode={val => countryCode.current = val} onChangeMobileNo={val => mobileNo.current = val} />;
       case "4": return <TeacherTypeForm onChangeType={val => teacherType.current = val} />
-      case "5": return <LanguageForm />;
+      case "5": return <LanguageForm onChangeSpeak={val => languageSpeak.current = val} onChangeTeach={val => languageTeach.current = val} />;
       case "6": return <LocationForm />;
       case "7": return <DescriptionForm />
       case "8": return <ProfilePicForm />;

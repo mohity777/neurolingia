@@ -14,6 +14,8 @@ import "./index.css"
 import ProfilePicForm from '../../components/ProfilePicForm'
 import VideoForm from '../../components/VideoForm'
 import ResumeForm from '../../components/ResumeForm'
+import Api from '../../utils/server'
+import { PATH } from '../../utils/apiPath'
 
 function TeacherProfile() {
 
@@ -32,16 +34,36 @@ function TeacherProfile() {
     let [formIndex, subFormIndex] = formType.split('_');
     let intFormIndex = parseInt(formIndex);
     let intSubFormIndex = parseInt(subFormIndex);
+    let formData = new FormData();
+    formData.append("email", "aroaMohit@gmail.com");
     switch (intSubFormIndex) {
+      case 0:  //First Name, Last Name
+         formData.append('first_name',firstName.current);
+         formData.append('last_name', lastName.current);
+         break;
+      case 1:  //Gender
+          formData.append("gender", gender.current);
+          break;
+      case 2:  //DOB
+          formData.append("dob", dob.current);
+          break;
       case 3:
       case 4:
+      case 5:
       case 6:
+      case 7:
+      case 8:
       case 9:
-        setFormType(`${intFormIndex + 1}_${intSubFormIndex + 1}`);
-        break;
+      case 10:
+      case 11:
+      case 12:
       default:
-        setFormType(`${intFormIndex}_${intSubFormIndex + 1}`);
-    }
+    };
+    Api.post(PATH.teacherDetails, formData, {
+      "Content-Type": "multipart/form-data",
+    });
+    let newFormType = intSubFormIndex == 9 ? `${intFormIndex + 1}_${intSubFormIndex + 1}` : `${intFormIndex}_${intSubFormIndex + 1}`;
+    setFormType(newFormType);
   }
 
   const onClickPrev = () => {

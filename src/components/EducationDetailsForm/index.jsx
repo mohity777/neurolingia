@@ -5,6 +5,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 import './index.css';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -103,6 +104,7 @@ export default function SimpleSelect() {
                     </form>
                 </div>
             </div>
+            <br></br>
             <div className="uploadFile">
                 <input
                     type="file"
@@ -120,6 +122,9 @@ export default function SimpleSelect() {
                         <FormHelperText id="file-upload-helper-text">To Get Verified Checkmark</FormHelperText>
                     </label>
                 </FormControl>
+            </div>
+            <div >
+                <Button style={{ float: "right", backgroundColor: "white", color: "black", fontSize: "10px", margin: "5px" }} variant="contained">+ New Certificate Course</Button>
             </div>
         </div>
     );

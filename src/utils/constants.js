@@ -9,5 +9,7 @@ export const SUB_FORMS = {
   7: "Intro Video",
   8: "Profile Picture",
   9: "Self Intro Video",
-  10: "Education",
+  10: "Education Details",
+  11: "Work Experience",
+  12: "Certificate Courses"
 };

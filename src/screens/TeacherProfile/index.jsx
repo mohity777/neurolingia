@@ -10,12 +10,14 @@ import TeacherTypeForm from "../../components/TeacherTypeForm"
 import LanguageForm from "../../components/LanguageSkillsForm"
 import LocationForm from "../../components/LocationForm"
 import DescriptionForm from "../../components/DescriptionForm"
+import EducationDetails from "../../components/EducationDetailsForm";
 import "./index.css"
 import ProfilePicForm from '../../components/ProfilePicForm'
 import VideoForm from '../../components/VideoForm'
 import ResumeForm from '../../components/ResumeForm'
 import Api from '../../utils/server'
 import { PATH } from '../../utils/apiPath'
+
 
 function TeacherProfile() {
 
@@ -38,15 +40,15 @@ function TeacherProfile() {
     formData.append("email", "aroaMohit@gmail.com");
     switch (intSubFormIndex) {
       case 0:  //First Name, Last Name
-         formData.append('first_name',firstName.current);
-         formData.append('last_name', lastName.current);
-         break;
+        formData.append('first_name', firstName.current);
+        formData.append('last_name', lastName.current);
+        break;
       case 1:  //Gender
-          formData.append("gender", gender.current);
-          break;
+        formData.append("gender", gender.current);
+        break;
       case 2:  //DOB
-          formData.append("dob", dob.current);
-          break;
+        formData.append("dob", dob.current);
+        break;
       case 3:
       case 4:
       case 5:
@@ -96,6 +98,8 @@ function TeacherProfile() {
       case "8": return <ProfilePicForm />;
       case "9": return <VideoForm />
       case "10": return <ResumeForm />
+      case "11": return <ResumeForm />
+      case "12": return <ResumeForm />
       default: <h1>No Match Found for formType</h1>
     }
   }

@@ -13,3 +13,12 @@
     border-radius: 0.9rem;
     box-shadow: 0px 0px 3px 3px rgb(235, 235, 235);
 }
+
+.gender{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}

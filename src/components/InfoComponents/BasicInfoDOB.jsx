@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import DateFnsUtils from "@date-io/date-fns";
-import {
-    DatePicker,
-    MuiPickersUtilsProvider,
-} from '@material-ui/pickers';
+// import DateFnsUtils from "@date-io/date-fns";
+// import {
+//     DatePicker,
+//     MuiPickersUtilsProvider,
+// } from '@material-ui/pickers';
 import { createMuiTheme } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/styles";
+// import { ThemeProvider } from "@material-ui/styles";
 import { makeStyles } from '@material-ui/core/styles';
 import './Styles/Calendar.css';
 
@@ -53,7 +53,7 @@ export default function CustomCalendar() {
     return (
         <div className={classes.root, classes.main}>
             <h1>Date of Birth</h1>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <ThemeProvider theme={materialTheme}>
                     <DatePicker
                         value={selectedDate}
@@ -61,7 +61,7 @@ export default function CustomCalendar() {
                         variant="static"
                     ></DatePicker>
                 </ThemeProvider>
-            </MuiPickersUtilsProvider>
+            </MuiPickersUtilsProvider> */}
         </div>
     );
 }

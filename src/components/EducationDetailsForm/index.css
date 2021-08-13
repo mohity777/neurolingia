@@ -1,0 +1,19 @@
+.resumeFormSide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.resumeForm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.uploadFile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

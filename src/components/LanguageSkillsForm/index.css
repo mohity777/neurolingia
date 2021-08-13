@@ -1,0 +1,22 @@
+.languageView {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+}
+
+.languageSelect{
+    background-color: #F7F8FC;
+    border: 0px;
+    border-bottom: 2px;
+    border-style: solid;
+    border-color: #A2A5B2;
+    width: 30%;
+    height: 10%;
+    color:  gray;
+    opacity: 1;
+    font-weight: 500;
+    font-size: 16px;
+}

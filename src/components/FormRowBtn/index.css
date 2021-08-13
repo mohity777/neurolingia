@@ -1,0 +1,8 @@
+.btnView {
+   display: flex;
+   justify-content: center;
+}
+
+.arrowIcon {
+   color: white;
+}

@@ -11,7 +11,7 @@ const GenderForm = ({ onChangeGender }) => {
         <img src={boy} className="genderImgSt" onClick={() => onChangeGender('Male')} />
       </div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <Button style={{ backgroundColor: "white", color: "black", marginTop: "-5rem", boxShadow: "none" }} variant="contained">Other</Button>
+        <Button onClick={() => onChangeGender('Other')} style={{ backgroundColor: "white", color: "black", marginTop: "-5rem", boxShadow: "none" }} variant="contained">Other</Button>
       </div>
     </div>
   );

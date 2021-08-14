@@ -27,8 +27,8 @@ function TeacherProfile() {
   const lastName = useRef('');
   const dob = useRef(new Date())
   const gender = useRef();
-  const countryCode = useRef('91');
-  const mobileNo = useRef('');
+  const countryCode = useRef('');
+  const mobileNo = useRef();
   const teacherType = useRef('');
   const languageSpeak = useRef([]);
   const languageTeach = useRef([]);
@@ -50,7 +50,10 @@ function TeacherProfile() {
       case 2:  //DOB
         formData.append("dob", dob.current);
         break;
-      case 3:
+      case 3: //Mobile
+        formData.append("country_code", countryCode.current);
+        formData.append('phone', mobileNo.current);
+        break;
       case 4: //Teacher Type
         formData.append("teacher_type", teacherType.current);
         break;

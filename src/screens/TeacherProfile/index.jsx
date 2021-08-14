@@ -32,13 +32,19 @@ function TeacherProfile() {
   const teacherType = useRef('');
   const languageSpeak = useRef([]);
   const languageTeach = useRef([]);
+  const selfIntro = useRef('');
+  const teacherPic = useRef('');
+  const introVideoUrl = useRef('')
 
   const onClickNext = () => {
     let [formIndex, subFormIndex] = formType.split('_');
     let intFormIndex = parseInt(formIndex);
     let intSubFormIndex = parseInt(subFormIndex);
+    let newFormIndex = intFormIndex;
+    let newSubFormIndex = intSubFormIndex + 1;
     let formData = new FormData();
     formData.append("email", "aroaMohit@gmail.com");
+
     switch (intSubFormIndex) {
       case 0:  //First Name, Last Name
         formData.append('first_name', firstName.current);
@@ -53,27 +59,40 @@ function TeacherProfile() {
       case 3: //Mobile
         formData.append("country_code", countryCode.current);
         formData.append('phone', mobileNo.current);
+        newFormIndex = newFormIndex + 1;
         break;
       case 4: //Teacher Type
         formData.append("teacher_type", teacherType.current);
         break;
-      case 5:
+      case 5:  //Language Speak & teach
         formData.append("language_speak", languageSpeak.current);
         formData.append("language_teaches", languageTeach.current);
-      case 6:
-      case 7:
-      case 8:
-      case 9:
+        break;
+      case 6: //Location
+        newFormIndex = newFormIndex + 1;
+        break;
+      case 7:   // Self Introduction
+        formData.append("self_intro", selfIntro.current);
+        newFormIndex = newFormIndex + 1;
+        break;
+      case 8:   // Teacher Pic
+        formData.append("imageProfile", 'teacherProfilePic');
+        formData.append("imageProfileData", teacherPic.current);
+        break;
+      case 9:   // Self Intro Video
+        formData.append("video_url", introVideoUrl.current);
+        newFormIndex = newFormIndex + 1;
+        break;
       case 10:
       case 11:
       case 12:
       default:
     };
+
     Api.post(PATH.teacherDetails, formData, {
       "Content-Type": "multipart/form-data",
     });
-    let newFormType = intSubFormIndex == 9 ? `${intFormIndex + 1}_${intSubFormIndex + 1}` : `${intFormIndex}_${intSubFormIndex + 1}`;
-    setFormType(newFormType);
+    setFormType(`${newFormIndex}_${newSubFormIndex}`);
   }
 
   const onClickPrev = () => {
@@ -102,9 +121,9 @@ function TeacherProfile() {
       case "4": return <TeacherTypeForm onChangeType={val => teacherType.current = val} />
       case "5": return <LanguageForm onChangeSpeak={val => languageSpeak.current = val} onChangeTeach={val => languageTeach.current = val} />;
       case "6": return <LocationForm />;
-      case "7": return <DescriptionForm />
-      case "8": return <ProfilePicForm />;
-      case "9": return <VideoForm />
+      case "7": return <DescriptionForm onChange={val => selfIntro.current = val} />
+      case "8": return <ProfilePicForm onChangePic={val => teacherPic.current = val}/>;
+      case "9": return <VideoForm onChangeVideoUrl={(val) => introVideoUrl.current = val} />;
       case "10": return <ResumeForm />
       case "11": return <ResumeForm />
       case "12": return <ResumeForm />

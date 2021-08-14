@@ -1,16 +1,38 @@
+import { useState } from "react";
 import { useRef } from "react";
 import "./index.css";
-const ProfilePicForm = (props) => {
+
+const ProfilePicForm = ({ onChangePic }) => {
   const ref = useRef();
+  const [pic, setPic] = useState(null);
   return (
     <div className="profilePicView">
       <button
         onClick={() => ref.current.click()}
         className="uploadPicPlaceholder"
       >
-        <h2>Upload your photo</h2>
+        {pic ? (
+          <img className="uploadPicPlaceholder" src={pic} alt="" />
+        ) : (
+          <h2>Upload your photo</h2>
+        )}
       </button>
-      <input ref={ref} type="file" style={{ display: "none" }} />
+      <input
+        accept="image/*"
+        onChange={(event) => {
+          if (event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+              setPic(e.target.result);
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            onChangePic(event.target.files[0]);
+          }
+        }}
+        ref={ref}
+        type="file"
+        style={{ display: "none" }}
+      />
     </div>
   );
 };

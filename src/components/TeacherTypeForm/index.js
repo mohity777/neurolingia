@@ -5,8 +5,8 @@ import girl from "../../assets/images/girl.jpeg";
 const TeacherTypeForm = ({ onChangeType }) => {
   return (
     <div className="teacherTypeView">
-      <img src={girl} className="genderImgSt" height="55%" width="22%" onClick={() => onChangeType('Professional')} />
-      <img src={boy} className="genderImgSt" height="55%" width="22%" onClick={() => onChangeType('Community')} />
+      <img src={girl} alt='girl_img' className="genderImgSt" height="55%" width="22%" onClick={() => onChangeType('Professional')} />
+      <img src={boy} alt='boy_img' className="genderImgSt" height="55%" width="22%" onClick={() => onChangeType('Community')} />
     </div>
   );
 };

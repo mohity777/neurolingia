@@ -19,7 +19,7 @@ export default class Api {
   static async post(path, body, extras) {
     try {
       const res = await Axios.post(path, body, extras);
-      console.log(res.data);
+      console.log(res);
       return res.data;
     } catch (err) {
       alert(err?.message || "Something Went wrong");

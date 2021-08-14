@@ -20,7 +20,7 @@ function SideNav({ subFormIndex, formIndex }) {
               <img src={process.env.PUBLIC_URL + '/assets/img/logo.jpg'} alt="NeuroLingua Logo" /> 
             </figure>
             <div className="circle">
-              <h2>{`${subFormIndex*7}%`}</h2>
+              <h2>{`${Math.round(subFormIndex* 8.33333333333)}%`}</h2>
             </div >
             <MobileStepper style={{ display: "none" }} />
             {

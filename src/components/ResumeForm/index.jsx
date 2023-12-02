@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 20
     },
 }));
-export default function SimpleTabs() {
+export default function SimpleTabs({onChange}) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
@@ -17,7 +17,7 @@ export default function SimpleTabs() {
         <div className={classes.root}>
 
             <div>
-                <EducationDetails />
+                <EducationDetails onChange={onChange}/>
             </div>
         </div>
     );

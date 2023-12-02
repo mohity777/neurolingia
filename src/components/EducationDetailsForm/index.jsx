@@ -30,15 +30,18 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SimpleSelect() {
+export default function SimpleSelect({ onChange }) {
     const classes = useStyles();
     const [title, setTitle] = React.useState('');
     const [location, setLocation] = React.useState('');
+    const [docName, setDocName] = React.useState('');
 
     const titleHandleChange = (event) => {
+        onChange("title", event.target.value);
         setTitle(event.target.value);
     };
     const locationHandleChange = (event) => {
+        onChange("location", event.target.value);
         setLocation(event.target.value)
     }
 
@@ -78,6 +81,7 @@ export default function SimpleSelect() {
                             defaultValue="Start (Year)"
                             type="date"
                             className={classes.textField}
+                            onChange={e => onChange('from',e.target.value)}
                         />
                     </form>
                 </div>
@@ -100,6 +104,7 @@ export default function SimpleSelect() {
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            onChange={e => onChange('to',e.target.value)}
                         />
                     </form>
                 </div>
@@ -111,6 +116,10 @@ export default function SimpleSelect() {
                     accept="*"
                     style={{ display: 'none' }}
                     id="contained-button-file"
+                    onChange={e=> {
+                        onChange("certificateData", e.target.files[0]);
+                        setDocName(e.target.files[0].name)
+                    }}
                 />
                 <FormControl>
                     <label htmlFor="contained-button-file">
@@ -118,6 +127,8 @@ export default function SimpleSelect() {
                             id="file-upload"
                             endAdornment={<InputAdornment position="end"><CloudUploadOutlinedIcon /></InputAdornment>}
                             placeholder="Upload Certificate"
+                            disabled={true}
+                            value={docName}
                         />
                         <FormHelperText id="file-upload-helper-text">To Get Verified Checkmark</FormHelperText>
                     </label>

@@ -32,9 +32,25 @@ function TeacherProfile() {
   const teacherType = useRef('');
   const languageSpeak = useRef([]);
   const languageTeach = useRef([]);
+  const location = useRef({
+    living_country: '',
+    living_state: '',
+    from_country: '',
+    from_state: ''
+  })
   const selfIntro = useRef('');
   const teacherPic = useRef('');
-  const introVideoUrl = useRef('')
+  const introVideoUrl = useRef('');
+  const educationDetails = useRef({
+    title: "",
+    institution: "",
+    location: "",
+    description: "",
+    from: "",
+    to: "",
+    certificate_name: "resumeFile",
+    certificateData: "",
+  });
 
   const onClickNext = () => {
     let [formIndex, subFormIndex] = formType.split('_');
@@ -84,9 +100,16 @@ function TeacherProfile() {
         newFormIndex = newFormIndex + 1;
         break;
       case 10:
+        formData.append("certificate_type", "Education Details");
       case 11:
+        formData.append("certificate_type", "Work Experience");
       case 12:
+        formData.append("Certificate Courses", "Certificate Courses");
       default:
+        formData.append("certificate_id", Math.floor(100000 + Math.random() * 900000));
+        for(const key in educationDetails.current){
+          formData.append(key,educationDetails.current[key])
+        }
     };
 
     Api.post(PATH.teacherDetails, formData, {
@@ -120,13 +143,13 @@ function TeacherProfile() {
       case "3": return <MobileForm onChangeCode={val => countryCode.current = val} onChangeMobileNo={val => mobileNo.current = val} />;
       case "4": return <TeacherTypeForm onChangeType={val => teacherType.current = val} />
       case "5": return <LanguageForm onChangeSpeak={val => languageSpeak.current = val} onChangeTeach={val => languageTeach.current = val} />;
-      case "6": return <LocationForm />;
+      case "6": return <LocationForm onChange={(key,val) => location.current[key] = val}/>;
       case "7": return <DescriptionForm onChange={val => selfIntro.current = val} />
       case "8": return <ProfilePicForm onChangePic={val => teacherPic.current = val}/>;
       case "9": return <VideoForm onChangeVideoUrl={(val) => introVideoUrl.current = val} />;
-      case "10": return <ResumeForm />
-      case "11": return <ResumeForm />
-      case "12": return <ResumeForm />
+      case "10": return <ResumeForm onChange={(key,val) => educationDetails.current[key] = val}/>
+      case "11": return <ResumeForm onChange={(key,val) => educationDetails.current[key] = val}/>
+      case "12": return <ResumeForm onChange={(key,val) => educationDetails.current[key] = val}/>
       default: <h1>No Match Found for formType</h1>
     }
   }
